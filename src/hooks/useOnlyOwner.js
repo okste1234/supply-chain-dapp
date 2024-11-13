@@ -4,11 +4,11 @@ import { getSupplysContract } from "../constants/contracts";
 import { useWeb3ModalAccount } from "@web3modal/ethers/react";
 
 const useOnlyOwner = () => {
-    const { address } = useWeb3ModalAccount();
+    const { address, isConnected } = useWeb3ModalAccount();
     const [isOwner, setIsOwner] = useState(false);
 
     useEffect(() => {
-        if (!address) return;
+        if (!address && !isConnected) return;
 
         const checkOwner = async () => {
             try {
@@ -21,7 +21,7 @@ const useOnlyOwner = () => {
         };
 
         checkOwner();
-    }, [address]);
+    }, [address, isConnected]);
 
     return isOwner;
 };

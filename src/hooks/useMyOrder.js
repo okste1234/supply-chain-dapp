@@ -5,7 +5,7 @@ import { getSupplysContract, getMulticallContract } from "../constants/contracts
 import { useWeb3ModalAccount } from "@web3modal/ethers/react";
 import { ethers } from "ethers";
 import Abi from "../constants/supplyChainABI.json";
-import useLatestBlock from "./useLatestBlock";
+// import useLatestBlock from "./useLatestBlock";
 
 // Define the Status enum
 const Status = {
@@ -24,7 +24,7 @@ const useMyOrder = () => {
     });
 
     const { address } = useWeb3ModalAccount();
-    const newBlock = useLatestBlock()
+    // const newBlock = useLatestBlock()
 
     const contract = getSupplysContract(readOnlyProvider);
     const multicallContract = getMulticallContract(readOnlyProvider);
@@ -75,7 +75,7 @@ const useMyOrder = () => {
 
         fetchProducts();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [address, newBlock]);
+    }, [address]);
 
     return data;
 };

@@ -3,7 +3,7 @@ import { readOnlyProvider } from "../constants/providers";
 import { getSupplysContract, getMulticallContract } from "../constants/contracts";
 import { ethers } from "ethers";
 import Abi from "../constants/supplyChainABI.json";
-import useLatestBlock from "./useLatestBlock";
+// import useLatestBlock from "./useLatestBlock";
 
 // Define the Status enum
 const Status = {
@@ -21,7 +21,7 @@ const useAllPurchase = () => {
         errorz: null,
     });
 
-    const newBlock = useLatestBlock()
+    // const newBlock = useLatestBlock()
 
     const contract = getSupplysContract(readOnlyProvider);
     const multicallContract = getMulticallContract(readOnlyProvider);
@@ -96,7 +96,7 @@ const useAllPurchase = () => {
         fetchProducts();
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [newBlock]);
+    }, []);
 
     return data;
 };

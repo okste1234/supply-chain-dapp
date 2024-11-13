@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { readOnlyProvider } from "../constants/providers";
 import { getSupplysContract } from "../constants/contracts";
 import { ethers } from "ethers";
-import useLatestBlock from "./useLatestBlock";
+// import useLatestBlock from "./useLatestBlock";
 
 const useCollections = () => {
     const [data, setData] = useState({
@@ -11,7 +11,7 @@ const useCollections = () => {
         loading: true,
         error: null,
     });
-    const newBlock = useLatestBlock()
+    // const newBlock = useLatestBlock()
 
     const contract = getSupplysContract(readOnlyProvider);
 
@@ -56,7 +56,7 @@ const useCollections = () => {
         fetchProducts();
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [newBlock]);
+    }, []);
 
     return data;
 };
